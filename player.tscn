@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://byxhhwujlvll2"]
+[gd_scene load_steps=4 format=3 uid="uid://byxhhwujlvll2"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_e7y0q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1eq2r"]
+radius = 0.6
+height = 2.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5dpet"]
 
 [node name="Player" type="CharacterBody3D"]
 motion_mode = 1
 script = ExtResource("1_e7y0q")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("CapsuleShape3D_1eq2r")
+target_position = Vector3(0, 0, 0)
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5dpet")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera" type="SpringArm3D" parent="CameraPivot"]
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+near = 0.001
