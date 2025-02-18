@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wqb7obiomuib"]
+
+[ext_resource type="AudioStream" uid="uid://b3rtlg2jl5kfj" path="res://assets/Patreon Challenge 03.ogg" id="1_xm35e"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_xm35e")
+autoplay = true
+parameters/looping = true

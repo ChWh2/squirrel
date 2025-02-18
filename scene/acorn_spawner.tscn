@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm2cq8cd81jwc"]
+
+[ext_resource type="Script" path="res://scripts/acorn_spawner.gd" id="1_looqb"]
+[ext_resource type="PackedScene" uid="uid://di2ey1ddu6s4v" path="res://scene/acorn.tscn" id="2_6swdi"]
+
+[node name="AcornSpawner" type="Node3D" groups=["acornSpawners"]]
+script = ExtResource("1_looqb")
+acornScene = ExtResource("2_6swdi")
+
+[connection signal="body_entered" from="Acorn" to="Acorn" method="_on_body_entered"]

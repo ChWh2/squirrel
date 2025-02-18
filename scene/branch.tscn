@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://coosumb1yowcl"]
+
+[node name="branch" type="CSGPolygon3D"]
+polygon = PackedVector2Array(0, 10, 0.8, 6.83, 0.8, 0.53, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 12

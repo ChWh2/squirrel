@@ -1,0 +1,206 @@
+[gd_scene load_steps=5 format=3 uid="uid://canwnmv1wnss7"]
+
+[ext_resource type="Texture2D" uid="uid://cfrk7aapwda82" path="res://assets/bark.bmp" id="1_jo0vg"]
+[ext_resource type="Script" path="res://scripts/branch.gd" id="2_edawq"]
+[ext_resource type="PackedScene" uid="uid://dm2cq8cd81jwc" path="res://scene/acorn_spawner.tscn" id="3_ae6wy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7ch6"]
+albedo_color = Color(0.286275, 0.14902, 0.027451, 1)
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("1_jo0vg")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[node name="Tree" type="CSGCombiner3D"]
+material_override = SubResource("StandardMaterial3D_q7ch6")
+use_collision = true
+collision_layer = 3
+
+[node name="branch" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+polygon = PackedVector2Array(0, 1000, 20, 600, 20, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 25.0
+height = 1000.0
+topEndSegmentHeight = 400.0
+
+[node name="branch" type="CSGPolygon3D" parent="branch"]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0, 204, 0)
+polygon = PackedVector2Array(0, 400, 15.492, 300, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 400.0
+topEndSegmentHeight = 100.0
+
+[node name="branch" type="CSGPolygon3D" parent="branch/branch"]
+transform = Transform3D(0.965926, -0.224144, -0.129409, 0.224144, 0.474444, 0.851271, -0.12941, -0.851271, 0.508519, 0, 237.189, -1.55255)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch2" type="CSGPolygon3D" parent="branch/branch"]
+transform = Transform3D(-0.676368, 0.736495, 0.0100999, -0.171217, -0.170547, 0.97036, 0.716388, 0.654591, 0.241452, -3.8147e-05, 237.189, -1.55256)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch2" type="CSGPolygon3D" parent="branch"]
+transform = Transform3D(0.224144, -0.595035, -0.771811, 0.5, 0.75, -0.433013, 0.836516, -0.288849, 0.465625, 0, 407, 0)
+polygon = PackedVector2Array(0, 400, 15.492, 300, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 400.0
+topEndSegmentHeight = 100.0
+
+[node name="branch" type="CSGPolygon3D" parent="branch/branch2"]
+transform = Transform3D(0.786566, -0.375, 0.490601, 0.0638238, 0.839602, 0.539439, -0.614199, -0.392993, 0.684336, -1.52588e-05, 237.189, -1.55255)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch2" type="CSGPolygon3D" parent="branch/branch2"]
+transform = Transform3D(-0.443445, 0.895777, -0.0306645, -0.00338994, 0.0325349, 0.999465, 0.896295, 0.443312, -0.0113905, 3.05176e-05, 237.189, -1.55255)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch3" type="CSGPolygon3D" parent="branch"]
+transform = Transform3D(-0.866025, 0.433013, -0.25, 0.5, 0.75, -0.433013, 4.47035e-08, -0.5, -0.866025, 0, 156, 0)
+polygon = PackedVector2Array(0, 400, 15.492, 300, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 400.0
+topEndSegmentHeight = 100.0
+
+[node name="branch" type="CSGPolygon3D" parent="branch/branch3"]
+transform = Transform3D(0.87001, 0.327342, -0.368686, -0.493018, 0.571496, -0.655992, -0.00403091, 0.752488, 0.658593, 0, 237.189, -1.55255)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch2" type="CSGPolygon3D" parent="branch/branch3"]
+transform = Transform3D(-0.830594, 0.275991, -0.483676, 0.486761, -0.0620981, -0.871325, -0.270514, -0.959152, -0.0827637, -7.62939e-06, 237.189, -1.55254)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch4" type="CSGPolygon3D" parent="branch"]
+transform = Transform3D(6.05647e-09, 0.5, 0.866025, 0.5, 0.75, -0.433013, -0.866025, 0.433013, -0.25, 0, 455, 0)
+polygon = PackedVector2Array(0, 400, 15.492, 300, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 400.0
+topEndSegmentHeight = 100.0
+
+[node name="branch" type="CSGPolygon3D" parent="branch/branch4"]
+transform = Transform3D(0.362373, -0.57006, -0.737373, -0.431186, 0.598854, -0.674873, 0.826296, 0.5625, -0.0287939, 0, 237.189, -1.55256)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="branch2" type="CSGPolygon3D" parent="branch/branch4"]
+transform = Transform3D(-0.953879, 0.160409, -0.253741, 0.300163, 0.497839, -0.813671, -0.00419702, -0.852306, -0.523027, -3.05176e-05, 237.189, -1.55252)
+polygon = PackedVector2Array(0, 200, 15.492, 100, 15.492, 0.5, 0, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+script = ExtResource("2_edawq")
+Width = 19.365
+height = 200.0
+topEndSegmentHeight = 100.0
+
+[node name="AcornSpawner" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.452, 626.225, 166.385)
+
+[node name="AcornSpawner2" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181, 653, -85)
+
+[node name="AcornSpawner3" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147, 381, -149)
+
+[node name="AcornSpawner4" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 394, 167)
+
+[node name="AcornSpawner5" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 993, 3)
+
+[node name="AcornSpawner6" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187, 734, 156)
+
+[node name="AcornSpawner7" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 706, 146)
+
+[node name="AcornSpawner8" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.778, 468.397, 184.115)
+
+[node name="AcornSpawner9" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -176.193, 432.121, 65.5272)
+
+[node name="AcornSpawner10" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 238, -18)
+
+[node name="AcornSpawner11" parent="." instance=ExtResource("3_ae6wy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 274, 1)
+
+[connection signal="body_entered" from="AcornSpawner/Acorn" to="AcornSpawner/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner2/Acorn" to="AcornSpawner2/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner3/Acorn" to="AcornSpawner3/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner4/Acorn" to="AcornSpawner4/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner5/Acorn" to="AcornSpawner5/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner6/Acorn" to="AcornSpawner6/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner7/Acorn" to="AcornSpawner7/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner8/Acorn" to="AcornSpawner8/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner9/Acorn" to="AcornSpawner9/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner10/Acorn" to="AcornSpawner10/Acorn" method="_on_body_entered"]
+[connection signal="body_entered" from="AcornSpawner11/Acorn" to="AcornSpawner11/Acorn" method="_on_body_entered"]

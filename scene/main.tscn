@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8en6cyqpkvo5"]
+
+[ext_resource type="PackedScene" uid="uid://byxhhwujlvll2" path="res://scene/player.tscn" id="1_dgu8o"]
+[ext_resource type="PackedScene" uid="uid://canwnmv1wnss7" path="res://scene/tree.tscn" id="2_1x1cf"]
+[ext_resource type="Texture2D" uid="uid://d3kn4f6yaxtn4" path="res://assets/grass.bmp" id="3_qh8os"]
+[ext_resource type="PackedScene" uid="uid://di2ey1ddu6s4v" path="res://scene/acorn.tscn" id="5_6h3g5"]
+[ext_resource type="PackedScene" uid="uid://bt8xtwnrhi211" path="res://scene/hawk.tscn" id="6_s0rga"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_utwu7"]
+sky_top_color = Color(0.308156, 0.466328, 0.59845, 1)
+sky_horizon_color = Color(0.581802, 0.665553, 0.754666, 1)
+
+[sub_resource type="Sky" id="Sky_t158o"]
+sky_material = SubResource("ProceduralSkyMaterial_utwu7")
+
+[sub_resource type="Environment" id="Environment_hshmx"]
+background_mode = 2
+sky = SubResource("Sky_t158o")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dswqy"]
+albedo_color = Color(3.24883e-07, 0.4224, 6.73831e-07, 1)
+normal_enabled = true
+normal_scale = 3.91
+normal_texture = ExtResource("3_qh8os")
+uv1_triplanar = true
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hshmx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.353553, -0.353554, 7.71342e-09, 0.707107, 0.707106, 0.5, -0.612372, 0.612373, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_dgu8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54)
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Tree" parent="World" instance=ExtResource("2_1x1cf")]
+
+[node name="CSGBox3D" type="CSGCylinder3D" parent="World"]
+material_override = SubResource("StandardMaterial3D_dswqy")
+use_collision = true
+collision_layer = 3
+radius = 1000.0
+
+[node name="Acorn" parent="." instance=ExtResource("5_6h3g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 35)
+
+[node name="Hawk" parent="." node_paths=PackedStringArray("circleAround") instance=ExtResource("6_s0rga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 1000, 0)
+circleAround = NodePath("../World/Tree")
+circleHeight = 1000.0
+circleRadius = 500.0
+velocity = 50.0
+swoopVelocity = 250.0
+timeNeeded = 10.0
